@@ -49,6 +49,22 @@ class GameScene: SKScene {
             addChild(cloud)
         }
         
+        let engineSoune = SKAudioNode(fileNamed: "engine.mp3")
+        addChild(engineSoune)
+        engineSoune.autoplayLooped = true
+        
+        // preload / prewarm impulse sounds
+        do {
+            let sounds: [String] = ["thunder", "yay"]
+            for sound in sounds {
+                let path: String = Bundle.main.path(forResource: sound, ofType: "mp3")
+                let url: URL = URL(fileURLWithPath: path)
+                let avPlayer: AVAudioPlayer = try AVAudioPlayer(contentsOf: url)
+                avPlayer.prepareToPlay()
+            }
+        } catch {
+            
+        }
     }
     
     
@@ -88,6 +104,8 @@ class GameScene: SKScene {
         island?.Update()
         for cloud in clouds {
             cloud.Update()
+            CollisionManager.SquaredRadiusCheck(scene: self, object1: player!, object2: cloud)
         }
+        CollisionManager.SquaredRadiusCheck(scene: self, object1: player!, object2: island!)
     }
 }
