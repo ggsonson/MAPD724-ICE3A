@@ -1,8 +1,14 @@
 //
 //  GameProtocol.swift
-//  MAPD724-ICE-3A
+//  MAPD724-ICE-1A
 //
-//  Created by Man Nok Pun on 2023-01-30.
+//  Created by Man Nok Pun on 2023-01-16.
 //
 
-import Foundation
+protocol GameProtocol {
+    
+    func CheckBounds()
+    func Reset()
+    func Start()
+    func Update()
+}
