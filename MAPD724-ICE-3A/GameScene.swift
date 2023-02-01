@@ -55,13 +55,18 @@ class GameScene: SKScene {
         
         // preload / prewarm impulse sounds
         do {
-            let sounds: [String] = ["thunder", "yay"]
-            for sound in sounds {
-              //  let path: String = Bundle.main.path(forResource: sound, ofType: "mp3")
-              //  let url: URL = URL(fileURLWithPath: path)
-              //  let avPlayer: AVAudioPlayer = try AVAudioPlayer(contentsOf: url)
-              //  avPlayer.prepareToPlay()
-            }
+            //let sounds: [String] = ["thunder", "yay"]
+            //for sound in sounds {
+                let path: String = Bundle.main.path(forResource: "yay", ofType: "mp3")!
+                let url: URL = URL(fileURLWithPath: path)
+                let avPlayer: AVAudioPlayer = try AVAudioPlayer(contentsOf: url)
+                avPlayer.prepareToPlay()
+            
+                let path2: String = Bundle.main.path(forResource: "thunder", ofType: "mp3")!
+                let url2: URL = URL(fileURLWithPath: path2)
+                let avPlayer2: AVAudioPlayer = try AVAudioPlayer(contentsOf: url2)
+                avPlayer2.prepareToPlay()
+            //}
         } catch {
             
         }
